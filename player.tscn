@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://player.gd" id="1_hh5s0"]
 [ext_resource type="Script" path="res://camera_3d.gd" id="2_k8sda"]
 [ext_resource type="Script" path="res://mesh_instance_3d_2.gd" id="3_6pe0n"]
-[ext_resource type="PackedScene" path="res://_bow_.tscn" id="3_ob734"]
+[ext_resource type="PackedScene" uid="uid://cf4lblihwjl13" path="res://_bow_.tscn" id="3_ob734"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mxghf"]
 
