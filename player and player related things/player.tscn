@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0d7r24xwgcyc"]
+[gd_scene load_steps=7 format=3 uid="uid://d0d7r24xwgcyc"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_hh5s0"]
-[ext_resource type="Script" path="res://camera_3d.gd" id="2_k8sda"]
-[ext_resource type="Script" path="res://mesh_instance_3d_2.gd" id="3_6pe0n"]
-[ext_resource type="PackedScene" uid="uid://cf4lblihwjl13" path="res://_bow_.tscn" id="3_ob734"]
+[ext_resource type="Script" path="res://player and player related things/player.gd" id="1_hh5s0"]
+[ext_resource type="Script" path="res://player and player related things/camera_3d.gd" id="2_k8sda"]
+[ext_resource type="PackedScene" uid="uid://cf4lblihwjl13" path="res://weapons/_bow_.tscn" id="3_ob734"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mxghf"]
 
@@ -43,4 +42,3 @@ transform = Transform3D(1.29332, -0.0804702, 0, 0.701923, 0.148269, 0, 0, 0, 0.4
 visible = false
 mesh = SubResource("BoxMesh_rx6xd")
 skeleton = NodePath("../..")
-script = ExtResource("3_6pe0n")

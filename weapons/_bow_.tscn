@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf4lblihwjl13"]
 
-[ext_resource type="Script" path="res://_bow_.gd" id="1_8ia2r"]
+[ext_resource type="Script" path="res://weapons/_bow_.gd" id="1_8ia2r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_thdsk"]
 

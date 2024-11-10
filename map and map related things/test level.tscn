@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://cwai062he04jm"]
 
-[ext_resource type="Texture2D" uid="uid://7loeqrqkih78" path="res://Dark/texture_08.png" id="1_noyoj"]
-[ext_resource type="PackedScene" uid="uid://d0d7r24xwgcyc" path="res://player.tscn" id="2_23ew1"]
+[ext_resource type="Texture2D" uid="uid://7loeqrqkih78" path="res://testfloor textures/texture_08.png" id="1_0eb31"]
+[ext_resource type="PackedScene" uid="uid://d0d7r24xwgcyc" path="res://player and player related things/player.tscn" id="2_vp2av"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxlo5"]
-albedo_texture = ExtResource("1_noyoj")
+albedo_texture = ExtResource("1_0eb31")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv2_scale = Vector3(0.5, 0.5, 0.5)
@@ -182,5 +182,5 @@ environment = SubResource("Environment_urbkf")
 camera_attributes = SubResource("CameraAttributesPractical_3aqx8")
 compositor = SubResource("Compositor_locim")
 
-[node name="Player" parent="." instance=ExtResource("2_23ew1")]
+[node name="Player" parent="." instance=ExtResource("2_vp2av")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.269, 3.22132, 3.87848)
