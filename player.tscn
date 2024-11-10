@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://wutug00pj8kq"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_hh5s0"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_k8sda"]
+[ext_resource type="Script" path="res://mesh_instance_3d_2.gd" id="3_6pe0n"]
+[ext_resource type="PackedScene" uid="uid://cfvr3itpvarpq" path="res://_bow_.tscn" id="3_ob734"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mxghf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t0ljs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rx6xd"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+floor_constant_speed = true
+script = ExtResource("1_hh5s0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+shape = SubResource("CapsuleShape3D_mxghf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.80215, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_k8sda")
+
+[node name="_bow_" parent="Camera3D" instance=ExtResource("3_ob734")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0301432, 0.0108078, 0.0551264)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_t0ljs")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+target_position = Vector3(0, -1.1, 0)
+collision_mask = 2
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.29332, -0.0804702, 0, 0.701923, 0.148269, 0, 0, 0, 0.415075, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_rx6xd")
+skeleton = NodePath("../..")
+script = ExtResource("3_6pe0n")
