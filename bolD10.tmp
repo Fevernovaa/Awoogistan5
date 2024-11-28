@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ri7ynxvrn8e"]
+
+[ext_resource type="Script" path="res://bolt.gd" id="1_ve86g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c2yd7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kg524"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.162, 0, 0, 0, -1.48444e-07, 0.152, 0, -3.396, -6.64413e-09, 0, 0, 0)
+mesh = SubResource("BoxMesh_c2yd7")
+script = ExtResource("1_ve86g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.3764, 0, 0, 0, 0.191411, 1.77636e-15, 0, 0, 2.6584, 0, 0.498755, 4.89833e-07)
+mesh = SubResource("SphereMesh_kg524")

@@ -5,10 +5,10 @@ var rotation_y: float = 0 #set later
 var sensitivity: float = 0.1 
 var last_position := Vector3.ZERO #explained later
 @onready var camera : Camera3D = $Camera3D #reference to camera
-var freq := 1.5 #headbobing frequency
-var amp := 0.09 #how hard the headbobing is (distance up and down)
-var bob_5 := 0.0 #explained later
-var pos = Vector3() #set later
+var freq : float = 1.5 #headbobing frequency
+var amp : float = 0.1 #how hard the headbobing is (distance up and down)
+var bob_5 : float = 0.0 #explained later
+var pos : Vector3 = Vector3() #set later
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -18,7 +18,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		var mouse_delta = event.relative
+		var mouse_delta : Vector2 = event.relative
 		rotation_y -= mouse_delta.x * sensitivity * 0.05
 		rotation_x -= mouse_delta.y * sensitivity * 0.05
 	#gets the mouse movements, multiply them by the sensitivity and then by 0.05
@@ -34,9 +34,9 @@ func _physics_process(delta: float) -> void:
 	#apply rotation_y and rotation_x, and clamp rotation.x so i can't look 360 degrees up and down
 	#lerp is used to make it smoother, smoothness is controlled by the last integer in the function 
 	# rn its 0.95
-	var camspeed = (global_transform.origin - last_position) / delta
+	var camspeed := (global_transform.origin - last_position) / delta
 	last_position = global_transform.origin
-	var local_speed = global_transform.basis.inverse() * camspeed
+	var local_speed := global_transform.basis.inverse() * camspeed
 	#calculate the camera's speed, used for headbob, camera lean and weapon up/down movement
 	#the faster the player the faster the headbob, higher camera lean, and more up/down movement
 
@@ -46,15 +46,21 @@ func _physics_process(delta: float) -> void:
 	#bugs out if you use lerp or lerpf instead of lerp_angle
 	#alsoways use lerp_angle for angles
 	
-	$_bow_.rotation.x = -local_speed.y / 75
-	$_bow_.rotation.x = lerp_angle($_bow_.rotation.x,0,0.02)
+	#$_bow_.rotation.x = -local_speed.y /
+	#$_bow_.rotation.x = lerp_angle($_bow_.rotation.x,0,0.02)
 	#weapon's up and down movement
 	
-	bob_5 += $"..".velocity.length() * delta * float($"..".is_on_floor())
-	#$"..".velocity.length() gets the player's speed
-	#float($"..".is_on_floor()) checks if the player is on the floor
-	#if is_on_floor is false, it returns 0, which is multiplied by the whole function
-	#so basiclly float(bool) will return 1 or 0
+	if $"..".velocity.length() > 1:
+		bob_5 += $"..".velocity.length() * delta * float($"..".is_on_floor())
+		#$"..".velocity.length() gets the player's speed
+		#float($"..".is_on_floor()) checks if the player is on the floor
+		#if is_on_floor is false, it returns 0, which is multiplied by the whole function
+		#so basiclly float(bool) will return 1 or 0
+	else:
+		lerp(bob_5,0.0,0.05)
+		#this just makes it so the head returns to 0 once the player is stopped
+		#"stopped" >1 velocity
+	
 	
 	
 	
